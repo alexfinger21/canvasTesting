@@ -1,0 +1,12 @@
+#main-game {
+    background-color: bisque;
+    margin-bottom: 40vh;
+}
+
+#game-container{
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
