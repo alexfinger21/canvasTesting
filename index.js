@@ -1,5 +1,7 @@
 const canvas = document.getElementById("main-game")
+
 const canvasCTX = canvas.getContext("2d")
+canvasCTX.imageSmoothingEnabled = false
 
 const spriteSheetSrc = "images/spritemain.png" 
 let toggled = false
@@ -10,14 +12,20 @@ function resize() {
         canvas.style.width = window.innerWidth * 0.10 + "px"
         console.log("hasn't clicked")
     } else if (toggled === true) {
+        console.log("hi")
         canvas.style.height = window.innerHeight * 0.15 + "px"
         canvas.style.width = window.innerWidth + "px"
     }
 }
 
 function init() {
-    const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight, spriteSheetSrc)
-    map.draw(canvasCTX)
+    const img = new Image()
+    img.src = "images/spritemain.png"
+
+    img.onload = () => {
+        const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/20, img, 0, canvas.offsetHeight - canvas.offsetHeight/20)
+        map.draw(canvasCTX)
+    }
 }
 
 
@@ -51,8 +59,8 @@ canvas.addEventListener("click", () => {
                 canvas.style.height = lerp(window.innerHeight * 0.05, y, progress) + "px"
                 window.requestAnimationFrame(initAnim)
             } else {
-                canvas.width = x + "px"
-                canvas.height = y + "px"
+                canvas.style.width = x + "px"
+                canvas.style.height = y + "px"
                 toggled = true
                 init()
             }

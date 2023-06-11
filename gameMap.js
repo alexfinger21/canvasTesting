@@ -1,17 +1,20 @@
 class gameMap {
-    constructor(length, height, imagesrc, difficulty = 1) {
+    constructor(length, height, img, x, y, difficulty = 1) {
         this.difficulty = difficulty
+
         this.length = length
         this.height = height
-        
-        const img = new Image()
-        img.src = imagesrc
+
+        this.x = x
+        this.y = y
+
         this.image = img
     }
 
     draw(ctx) {
-        console.log(this.height)
-        console.log(this.length)
-        ctx.drawImage(this.image, 2, 54, this.image.naturalWidth, 13, 0, 0, this.length, this.height)
+        console.log(this.x)
+        console.log(this.y)
+        console.log(this.image.naturalWidth)
+        ctx.drawImage(this.image, 0, 54, this.image.naturalWidth, 13, this.x, 120, this.length, this.height)
     }
 }
