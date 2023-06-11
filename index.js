@@ -111,7 +111,7 @@ function init() {
     const img = new Image()
     img.src = "images/spritemain.png"
 
-    img.onload = () => {
+    img.onload = () => {//render map
         const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/20, img, 0, canvas.offsetHeight - canvas.offsetHeight/15)
         map.draw(canvasCTX)
     }
