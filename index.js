@@ -1,7 +1,7 @@
 const canvas = document.getElementById("main-game")
 
 const canvasCTX = canvas.getContext("2d")
-canvasCTX.imageSmoothingEnabled = false
+canvasCTX.imageSmoothingEnabled = true
 
 const spriteSheetSrc = "images/spritemain.png" 
 let toggled = false
