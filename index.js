@@ -16,7 +16,7 @@ function resize() {
 }
 
 function init() {
-    const map = new gameMap(canvas.width, canvas.height, spriteSheetSrc)
+    const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight, spriteSheetSrc)
     map.draw(canvasCTX)
 }
 
