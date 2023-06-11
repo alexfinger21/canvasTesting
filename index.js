@@ -1,5 +1,7 @@
 const canvas = document.getElementById("main-game")
+const canvasCTX = canvas.getContext("2d")
 
+const spriteSheetSrc = "images/spritemain.png" 
 let toggled = false
 
 function resize() {
@@ -11,6 +13,11 @@ function resize() {
         canvas.style.height = window.innerHeight * 0.15 + "px"
         canvas.style.width = window.innerWidth + "px"
     }
+}
+
+function init() {
+    const map = new gameMap(canvas.width, canvas.height, spriteSheetSrc)
+    map.draw(canvasCTX)
 }
 
 
@@ -47,6 +54,7 @@ canvas.addEventListener("click", () => {
                 canvas.width = x + "px"
                 canvas.height = y + "px"
                 toggled = true
+                init()
             }
         }
 
