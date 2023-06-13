@@ -1,7 +1,7 @@
 const canvas = document.getElementById("main-game")
 
 const canvasCTX = canvas.getContext("2d")
-canvasCTX.imageSmoothingEnabled = true
+canvasCTX.imageSmoothingEnabled = false
 
 const spriteSheetSrc = "images/spritemain.png" 
 let toggled = false
@@ -78,8 +78,8 @@ function resizeCanvas() {
         } else {
             canvas.style.width = x + "px"
             canvas.style.height = y + "px"
-            canvas.width = x
-            canvas.height = y
+            canvas.width = x/1.5
+            canvas.height = y/1.5
             toggled = true
             init()
         }
@@ -112,7 +112,7 @@ function init() {
     img.src = "images/spritemain.png"
 
     img.onload = () => {//render map
-        const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/20, img, 0, canvas.offsetHeight - canvas.offsetHeight/15)
+        const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/10, img, 0, canvas.offsetHeight - canvas.offsetHeight/2.2)
         map.draw(canvasCTX)
     }
 }
@@ -128,4 +128,3 @@ canvas.addEventListener("click", () => {
         fadeOut()
     }
 })
-
