@@ -19,15 +19,17 @@ class gameMap {
 
         let j = 0        
         
-        console.log(this.length/(this.image.naturalWidth - (this.image.naturalWidth - 1201)) - 1)
+        console.log(this.length/(this.image.naturalWidth - (this.image.naturalWidth - 1200)) - 1)
 
-        for (let i = 0; i<this.length/(this.image.naturalWidth - (this.image.naturalWidth - 1201)) - 1; i++) {
+        for (let i = 0; i<this.length/(this.image.naturalWidth - (this.image.naturalWidth - 1200)) - 1; i++) {
             j++
-            console.log(i)
-            ctx.drawImage(this.image, 2, 54, this.image.naturalWidth - (this.image.naturalWidth - 1201), 13, (this.image.naturalWidth - (this.image.naturalWidth - 1201)) * i, this.y, (this.image.naturalWidth - (this.image.naturalWidth - 1201)), this.height) // the 2nd and 3rd values are where the road starts on the image, and 1201 is where the road ends
+            console.log("LOOP INVOKED: " + i)
+            ctx.drawImage(this.image, 2, 54, this.image.naturalWidth - (this.image.naturalWidth - 1200), 13, (this.image.naturalWidth - (this.image.naturalWidth - 1200)) * i, this.y, (this.image.naturalWidth - (this.image.naturalWidth - 1200)), this.height) // the 2nd and 3rd values are where the road starts on the image, and 1200 is where the road ends
         }
 
-        ctx.drawImage(this.image, 2, 54, this.length%(this.image.naturalWidth - (this.image.naturalWidth - 1201)), 13, (this.image.naturalWidth - (this.image.naturalWidth - 1201)) * j, this.y, this.length%(this.image.naturalWidth - (this.image.naturalWidth - 1201)), this.height) // the 2nd and 3rd values are where the road starts on the image, and 1201 is where the road ends
+        console.log(this.length%(this.image.naturalWidth - (this.image.naturalWidth - 1200)))
+
+        ctx.drawImage(this.image, 2, 54, this.length%(this.image.naturalWidth - (this.image.naturalWidth - 1200)), 13, (this.image.naturalWidth - (this.image.naturalWidth - 1200)) * j, this.y, this.length%(this.image.naturalWidth - (this.image.naturalWidth - 1200)), this.height) // the 2nd and 3rd values are where the road starts on the image, and 1200 is where the road ends
 
     }
 }
