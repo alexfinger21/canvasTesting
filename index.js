@@ -112,8 +112,12 @@ function init() {
     img.src = "images/spritemain.png"
 
     img.onload = () => {//render map
+        //canvasCTX.save()
         const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/10, img, 0, canvas.offsetHeight - canvas.offsetHeight/2.2)
         map.draw(canvasCTX)
+        //canvasCTX.restore()
+
+        let x = 21231230
     }
 }
 
