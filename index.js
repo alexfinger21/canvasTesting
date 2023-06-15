@@ -113,11 +113,19 @@ function init() {
 
     img.onload = () => {//render map
         //canvasCTX.save()
-        const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/10, img, 0, canvas.offsetHeight - canvas.offsetHeight/2.2)
-        map.draw(canvasCTX)
-        //canvasCTX.restore()
+        x = 0
+        anim = (function () {
+            canvasCTX.save()
+            canvasCTX.translate(x, 0)
+            const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/10, img, 0, canvas.offsetHeight - canvas.offsetHeight/2.2)
+            map.draw(canvasCTX)
+            canvasCTX.restore()
+            x++
 
-        let x = 21231230
+            console.log(x)
+
+            window.requestAnimationFrame(animate)
+        })()
     }
 }
 
