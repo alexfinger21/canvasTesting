@@ -10,6 +10,7 @@ class Obstacle {
         this.minDist = 50
 
         this.cacti = [[332, 34], [357, 23], [383, 23], [407, 23], [431, 50]]
+
     }
 
     draw(ctx) {
