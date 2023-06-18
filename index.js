@@ -6,6 +6,8 @@ canvasCTX.imageSmoothingEnabled = false
 const spriteSheetSrc = "images/spritemain.png" 
 let toggled = false
 
+let distance = 0
+
 function initCanvas() {
     console.log("text")
     canvasCTX.font = "18px Fantasy"
@@ -117,21 +119,20 @@ function init() {
         const xCanvas = window.innerWidth
         const yCanvas = window.innerHeight * 0.15
 
-        let x = 0
         const anim = function () {
             canvasCTX.save()
 
             canvas.width = xCanvas/1.5
             canvas.height = yCanvas/1.5
 
-            canvasCTX.translate(-x, 0)
+            canvasCTX.translate(-distance, 0)
 
             const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/10, img, 0, canvas.offsetHeight - canvas.offsetHeight/2.2)
             map.draw(canvasCTX)
 
             canvasCTX.restore()
 
-            x += 5
+            distance += 5
 
             window.requestAnimationFrame(anim)
         }
