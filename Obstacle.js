@@ -1,6 +1,6 @@
 class Obstacle {
     constructor(obstacleChance = 0.01, yPos) {
-        this.obstacleChance = obstacleChance
+        this.obstacleChance = 0.01//add coordinates for the spritesheet 
 
         this.lastSpawned = 0
 
