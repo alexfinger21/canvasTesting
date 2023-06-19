@@ -16,6 +16,8 @@ class Obstacle {
     draw(ctx) {
         ctx.save()
 
-        Math.random()
+        //Math.random()
+
+        ctx.restore()
     }
 }
