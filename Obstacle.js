@@ -21,6 +21,8 @@ class Obstacle {
 
         ctx.drawImage(this.image, this.cacti[cactus][0], 1, this.cacti[cactus][1], this.height, Math.random() * 9000 + 100, this.y, this.cacti[cactus][1], this.height) // the 2nd and 3rd values are where the road starts on the image, and 1200 is where the road ends
 
+        ctx.drawImage(this.image, this.cacti[0][0], 1, this.cacti[0][1], this.height, 20, this.y, this.cacti[0][1], this.height) // the 2nd and 3rd values are where the road starts on the image, and 1200 is where the road ends
+
         ctx.restore()
     }
 }
