@@ -134,12 +134,12 @@ function init() {
             const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/10, img, 0, canvas.offsetHeight - canvas.offsetHeight/2.2)
             map.draw(canvasCTX)
 
-            const obstacle = new Obstacle(0.01, canvas.offsetHeight - canvas.offsetHeight/2.2, img)
-            obstacle.draw()
+            const obstacle = new Obstacle(0.01, canvas.offsetHeight - canvas.offsetHeight/1.51, img)
+            obstacle.draw(canvasCTX)
 
             canvasCTX.restore()
 
-            distance += 5
+            distance += 2
 
             window.requestAnimationFrame(anim)
         }
