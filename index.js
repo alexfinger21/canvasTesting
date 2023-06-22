@@ -8,10 +8,6 @@ let toggled = false
 
 let distance = 0
 
-function getDistance() {
-    return distance
-}
-
 function initCanvas() {
     console.log("text")
     canvasCTX.font = "18px Fantasy"
@@ -132,14 +128,11 @@ function init() {
             canvasCTX.translate(-distance, 0)
 
             const map = new gameMap(canvas.offsetWidth, canvas.offsetHeight/10, img, 0, canvas.offsetHeight - canvas.offsetHeight/2.2)
-            map.draw(canvasCTX)
-
-            const obstacle = new Obstacle(0.01, canvas.offsetHeight - canvas.offsetHeight/2.2, img)
-            obstacle.draw()
+            map.draw(canvasCTX, distance)
 
             canvasCTX.restore()
 
-            distance += 5
+            distance += 2
 
             window.requestAnimationFrame(anim)
         }
