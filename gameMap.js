@@ -1,3 +1,5 @@
+obstacles = []
+
 class gameMap {
     constructor(length, height, img, x, y, difficulty = 1) {
         this.difficulty = difficulty
@@ -11,11 +13,19 @@ class gameMap {
         this.image = img
     }
 
-    draw(ctx) {
+    draw(ctx, dist) {
         // console.log(this.x)
         // console.log(this.y)
         // console.log(this.length)
         // console.log(this.image.naturalWidth)
+
+        const randomNum = Math.random()*500
+        const lastObstacle = obstacles[obstacles.length - 1] ? obstacles[obstacles.length - 1].x : 0
+
+        if ((dist+randomNum-lastObstacle) > Obstacle.getminDist()) {
+            obstacles.push(new Obstacle(0.01, dist+randomNum, canvas.offsetHeight - canvas.offsetHeight/1.51, this.image))
+        }
+
         ctx.save()
 
         let j = 0        
@@ -28,6 +38,8 @@ class gameMap {
 
         ctx.drawImage(this.image, 2, 54, this.length%(this.image.naturalWidth - (this.image.naturalWidth - 1200)), 13, (this.image.naturalWidth - (this.image.naturalWidth - 1200)) * j, this.y, this.length%(this.image.naturalWidth - (this.image.naturalWidth - 1200)), this.height) // the 2nd and 3rd values are where the road starts on the image, and 1200 is where the road ends
         
+        Obstacle.draw(ctx, obstacles)
+
         ctx.restore()
     }
 }
